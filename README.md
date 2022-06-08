@@ -6,6 +6,7 @@
 - https://developer.android.com/jetpack 
 - https://square.github.io/picasso/ 
 - https://frescolib.org/ 
+- https://square.github.io/retrofit/ 
 - https://github.com/bumptech/glide 
 - https://github.com/greenrobot/greenDAO 
 - https://github.com/cashapp/sqldelight 
