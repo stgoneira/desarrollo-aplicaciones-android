@@ -14,13 +14,51 @@ android {
 }
 ```
 
-## Code Example 
+## Code Example :: activity_main.xml
 
-```kotlin
-val imageView  = findViewById<ImageView>(R.id.imageView)
-val imgUrl     = "https://play-lh.googleusercontent.com/y_-anVKl3ID25Je02J1dseqlAm41N8pwI-Gad7aDxPIPss3d7hUYF8c08SNCtwSPW5g"
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-Picasso.get()
-    .load(imgUrl )
-    .into( imageView )
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="textview1"
+    />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="textview2"
+    />
+</LinearLayout>
 ```
+
+## Code Example :: MainActivity.kt 
+
+```kotlin 
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.textView1.text = "Hola Mundillo Uno!!!"
+        binding.textView2.text = "Hola Mundo #2!!!!!"
+    }
+}
+```
+
+
+
+
