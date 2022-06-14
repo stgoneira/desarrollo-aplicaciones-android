@@ -14,7 +14,7 @@ https://square.github.io/picasso/
 implementation 'com.squareup.picasso:picasso:2.8'
 ```
 
-## Code 
+## Code Example 
 
 ```kotlin
 val imageView  = findViewById<ImageView>(R.id.imageView)
