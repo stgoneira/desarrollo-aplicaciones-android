@@ -186,6 +186,8 @@ class MainActivity : AppCompatActivity() {
 
 ## Layout :: foto_item.xml 
 
+IMPORTANTE: height -> wrap_content
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
