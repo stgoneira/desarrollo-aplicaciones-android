@@ -98,6 +98,35 @@ class FotoAdapter(private val datos:List<Foto>):RecyclerView.Adapter<FotoAdapter
 }
 ```
 
+## Ejemplo Adapter con ViewBinding
+
+```kotlin 
+class LibroAdapter(private val datos:List<Libro>):RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
+
+    class ViewHolder(val binding:LibroItemBinding):RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = LibroItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val libro = datos.get(position)
+        with(holder.binding) {
+            tvTitulo.text   = libro.titulo
+            tvAutor.text    = "Autor: ${libro.autor}"
+            tvLenguaje.text = "Lenguaje: ${libro.lenguaje}"
+            tvPais.text     = "País: ${libro.pais}"
+            Picasso.get().load(libro.imagen).into(imageView)
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return datos.size
+    }
+}
+```
+
 ## Activity 
 
 ```kotlin
