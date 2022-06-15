@@ -2,11 +2,6 @@
 
 https://developer.android.com/training/data-storage/room
 
-- kapt
-- dependencies
-- entity, dao, database 
-
-
 ## Configuration :: build.gradle (Project)
 
 Agregar Plugin KAPT
