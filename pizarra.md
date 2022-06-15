@@ -3,7 +3,6 @@
 ## ENDPOINTS 
 
 https://my-json-server.typicode.com/Himuravidal/anchorBooks/books
-
 https://my-json-server.typicode.com/Himuravidal/anchorBooks/bookDetail/1
 
 ## SESIONES 
