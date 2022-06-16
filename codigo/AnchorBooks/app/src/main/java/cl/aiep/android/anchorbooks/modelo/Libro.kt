@@ -1,19 +1,16 @@
 package cl.aiep.android.anchorbooks.modelo
 
-import com.google.gson.annotations.SerializedName
-
-data class Libro(
-    val id:Int,
-    @SerializedName("author") val autor:String,
-    @SerializedName("country") val pais:String,
-    @SerializedName("imageLink") val imagen:String,
-    @SerializedName("language") val lenguaje:String,
-    @SerializedName("link") val enlace:String,
-    @SerializedName("pages") val paginas:Int,
-    @SerializedName("title") val titulo:String,
-    @SerializedName("year") val anno:Int,
-    @SerializedName("price") val precio:Int,
-    @SerializedName("lastPrice") val ultimoPrecio:Int,
-    @SerializedName("delivery") val despacho:Boolean
-
-)
+interface Libro {
+    val id: Int
+    val autor: String
+    val pais: String
+    val imagen: String
+    val lenguaje: String
+    val enlace: String
+    val paginas: Int
+    val titulo: String
+    val anno: Int
+    val precio: Int
+    val ultimoPrecio: Int
+    val despacho: Boolean
+}

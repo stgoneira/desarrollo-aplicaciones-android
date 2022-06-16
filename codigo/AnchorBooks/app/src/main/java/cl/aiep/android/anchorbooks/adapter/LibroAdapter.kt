@@ -1,13 +1,16 @@
 package cl.aiep.android.anchorbooks.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import cl.aiep.android.anchorbooks.DetalleActivity
 import cl.aiep.android.anchorbooks.databinding.LibroItemBinding
-import cl.aiep.android.anchorbooks.modelo.Libro
+import cl.aiep.android.anchorbooks.modelo.LibroModel
 import com.squareup.picasso.Picasso
 
-class LibroAdapter(private val datos:List<Libro>):RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
+class LibroAdapter(private val datos:List<LibroModel>):RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
 
     class ViewHolder(val binding:LibroItemBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -25,6 +28,12 @@ class LibroAdapter(private val datos:List<Libro>):RecyclerView.Adapter<LibroAdap
             tvPais.text     = "País: ${libro.pais}"
             Picasso.get().load(libro.imagen).into(imageView)
         }
+
+        // onclick libro item
+        holder.binding.root.setOnClickListener(View.OnClickListener {
+            val intent = Intent(it.context, DetalleActivity::class.java)
+            it.context.startActivity(intent)
+        })
     }
 
     override fun getItemCount(): Int {
