@@ -67,7 +67,7 @@ interface ProductoDao {
 }
 ```
 
-## Code Example :: ProductoDao.kt 
+## Code Example :: BaseDatos.kt 
 
 ```kotlin 
 @Database(entities = [Producto::class], version = 1)
