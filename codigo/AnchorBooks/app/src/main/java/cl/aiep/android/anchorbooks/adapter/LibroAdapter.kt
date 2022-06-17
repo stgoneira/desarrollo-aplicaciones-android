@@ -10,6 +10,8 @@ import cl.aiep.android.anchorbooks.databinding.LibroItemBinding
 import cl.aiep.android.anchorbooks.modelo.Libro
 import com.squareup.picasso.Picasso
 
+const val LIBROID_MESSAGE = "cl.aiep.android.anchorbooks.LIBROID"
+
 class LibroAdapter(private val datos:List<Libro>):RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
 
     class ViewHolder(val binding:LibroItemBinding):RecyclerView.ViewHolder(binding.root)
@@ -31,7 +33,9 @@ class LibroAdapter(private val datos:List<Libro>):RecyclerView.Adapter<LibroAdap
 
         // onclick libro item
         holder.binding.root.setOnClickListener(View.OnClickListener {
-            val intent = Intent(it.context, DetalleActivity::class.java)
+            val intent = Intent(it.context, DetalleActivity::class.java).apply {
+                putExtra(LIBROID_MESSAGE, libro.id)
+            }
             it.context.startActivity(intent)
         })
     }

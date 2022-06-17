@@ -6,12 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".DetalleActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <View
+        android:id="@+id/viewBgAccent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/accent_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHor50"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHor50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="198dp"
-        tools:layout_editor_absoluteY="289dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4   " />
+
+    <ImageView
+        android:id="@+id/imgDetalleLibro"
+        android:layout_width="130dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tvDetalleTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/imgDetalleLibro"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Lorem ipsum dolor" />
+
+    <TextView
+        android:id="@+id/tvDetalleAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_icons"
+        app:layout_constraintStart_toEndOf="@+id/imgDetalleLibro"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetalleTitulo"
+        tools:text="por Juanito Pérez" />
+
+    <Button
+        android:id="@+id/btnDetalleComprar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Comprar"
+        app:layout_constraintStart_toEndOf="@+id/imgDetalleLibro"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetallePrecio" />
+
+    <TextView
+        android:id="@+id/tvDetallePrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/imgDetalleLibro"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetalleAutor"
+        tools:text="$19.990" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

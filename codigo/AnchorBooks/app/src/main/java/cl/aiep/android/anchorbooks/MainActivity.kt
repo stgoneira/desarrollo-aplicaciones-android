@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         // RECYCLERVIEW
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = LibroAdapter(emptyList())
 
         libroViewModel.cargarLibros()
 

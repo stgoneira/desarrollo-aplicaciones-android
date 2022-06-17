@@ -1,73 +1,75 @@
 package cl.aiep.android.anchorbooks
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import cl.aiep.android.anchorbooks.adapter.LIBROID_MESSAGE
 import cl.aiep.android.anchorbooks.databinding.ActivityDetalleBinding
-import cl.aiep.android.anchorbooks.db.BaseDatos
-import cl.aiep.android.anchorbooks.db.LibroEntity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import cl.aiep.android.anchorbooks.view.LibroDetalleViewModel
+import com.squareup.picasso.Picasso
+import java.text.NumberFormat
+import java.util.*
 
 class DetalleActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityDetalleBinding
+
+    private val libroDetalleViewModel: LibroDetalleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // corrutina
-        GlobalScope.launch(Dispatchers.IO){
-            val db = Room.databaseBuilder(
-                applicationContext,
-                BaseDatos::class.java,
-                "libros-db"
-            ).build()
+        val libroId = intent.getIntExtra(LIBROID_MESSAGE, 0)
 
-            val libroDao = db.libroDao()
+        libroDetalleViewModel.cargarLibro(libroId)
 
-            libroDao.deleteAll()
+        val numberFormat = NumberFormat.getCurrencyInstance()
+        numberFormat.currency = Currency.getInstance("CLP")
+        numberFormat.maximumFractionDigits = 0
 
-            libroDao.insertAll(
-                LibroEntity(
-                    1,
-                    "Juan Pérez",
-                    "Chile",
-                    "http://example.com/img.jpg",
-                    "español",
-                    "http://juanito.cl",
-                    110,
-                    "Lorem ipsum",
-                    2019,
-                    9_990,
-                    19_990,
-                    true
-                ),
-                LibroEntity(
-                    2,
-                    "Catalina Venegas",
-                    "Chile",
-                    "http://example.com/img2.jpg",
-                    "español",
-                    "http://catalina.cl",
-                    220,
-                    "Dolor atme",
-                    2022,
-                    19_990,
-                    29_990,
-                    false
-                ),
-            )
+        libroDetalleViewModel.libro.observe(this, Observer {    libro ->
+            with(binding) {
+                tvDetalleTitulo.text = libro.titulo
+                tvDetalleAutor.text = libro.autor
+                tvDetallePrecio.text = numberFormat.format(libro.precio)
+                Picasso.get().load(libro.imagen).into(imgDetalleLibro)
 
-            val libro = libroDao.findById(2)
-            binding.textView.text = libro.toString()
-            Log.d("LIBRO-BD", libro.toString())
+                btnDetalleComprar.setOnClickListener {
+                    val textoCorreo = """
+                        Hola,
+                        
+                        Vi el libro ${libro.titulo} de código ${libro.id} y me gustaría que me contactaran a este correo o al siguiente número _________.
+                        
+                        Quedo atento.
+                    """.trimIndent()
+                    val intentMail = Intent(Intent.ACTION_SENDTO).apply {
+                        type = "msage/rfc822"
+                        data = Uri.parse("mailto:")
+                        val para:Array<String> = arrayOf("ventas@anchorbooks.cl")
+                        putExtra(Intent.EXTRA_EMAIL, para)
+                        putExtra(Intent.EXTRA_SUBJECT, "Consulta por libro ${libro.titulo} id ${libro.id}")
+                        putExtra(Intent.EXTRA_TEXT, textoCorreo)
+                    }
 
-        }
+                    startActivity(intentMail)
+
+                    if(intentMail.resolveActivity(packageManager) != null) {
+                        startActivity(intentMail)
+                        Log.d("LIBRO_COMPRAR", "Abriendo app de correos....")
+                    } else {
+                        Toast.makeText(baseContext, "NO tienen ninguna app de correos instalada!!!", Toast.LENGTH_LONG).show()
+                        Log.d("LIBRO_COMPRAR", "No hay ninguna app de correo instalada")
+                    }
+                }
+            }
+        })
+
     }
 }

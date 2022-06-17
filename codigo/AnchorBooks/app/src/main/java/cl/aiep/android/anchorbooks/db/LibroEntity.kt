@@ -11,11 +11,11 @@ data class LibroEntity(
     override val pais:String,
     override val imagen:String,
     override val lenguaje:String,
-    override val enlace:String,
-    override val paginas:Int,
+    override val enlace:String?,
+    override val paginas:Int?,
     override val titulo:String,
-    override val anno:Int,
-    override val precio:Int,
-    override val ultimoPrecio:Int,
-    override val despacho:Boolean
+    override val anno:Int?,
+    override val precio:Int?,
+    override val ultimoPrecio:Int?,
+    override val despacho:Boolean?
 ):Libro

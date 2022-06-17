@@ -1,9 +1,6 @@
 package cl.aiep.android.anchorbooks.db
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface LibroDao {
@@ -17,7 +14,7 @@ interface LibroDao {
     @Query("DELETE FROM libros")
     fun deleteAll()
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg libros:LibroEntity)
 
     @Delete
