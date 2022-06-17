@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cl.aiep.android.anchorbooks.DetalleActivity
 import cl.aiep.android.anchorbooks.databinding.LibroItemBinding
-import cl.aiep.android.anchorbooks.modelo.LibroModel
+import cl.aiep.android.anchorbooks.modelo.Libro
 import com.squareup.picasso.Picasso
 
-class LibroAdapter(private val datos:List<LibroModel>):RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
+class LibroAdapter(private val datos:List<Libro>):RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
 
     class ViewHolder(val binding:LibroItemBinding):RecyclerView.ViewHolder(binding.root)
 

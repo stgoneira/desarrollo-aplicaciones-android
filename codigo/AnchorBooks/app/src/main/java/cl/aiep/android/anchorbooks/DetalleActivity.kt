@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase
 import cl.aiep.android.anchorbooks.databinding.ActivityDetalleBinding
 import cl.aiep.android.anchorbooks.db.BaseDatos
 import cl.aiep.android.anchorbooks.db.LibroEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -21,7 +22,7 @@ class DetalleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // corrutina
-        GlobalScope.launch {
+        GlobalScope.launch(Dispatchers.IO){
             val db = Room.databaseBuilder(
                 applicationContext,
                 BaseDatos::class.java,
@@ -64,7 +65,7 @@ class DetalleActivity : AppCompatActivity() {
             )
 
             val libro = libroDao.findById(2)
-
+            binding.textView.text = libro.toString()
             Log.d("LIBRO-BD", libro.toString())
 
         }

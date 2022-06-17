@@ -10,34 +10,16 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class LibroRepository {
-
-    val libroAPI:LibroAPI
+class LibroRepository (
+    val libroAPI:LibroAPI,
     val libroDao:LibroDao
-
-    init {
-        // Retrofit
-        val baseUrl = "https://my-json-server.typicode.com/Himuravidal/anchorBooks/"
-        val retrofit = Retrofit.Builder()
-            .baseUrl( baseUrl )
-            .addConverterFactory( GsonConverterFactory.create() )
-            .build()
-        libroAPI = retrofit.create( LibroAPI::class.java )
-
-        // LibroDao
-        val db = Room.databaseBuilder(null, BaseDatos::class.java, "libros-bd").build()
-        libroDao = db.libroDao()
-    }
+) {
 
     suspend fun findAll():List<Libro> {
         return withContext(Dispatchers.IO) {
             val response = libroAPI.listLibros()
-            if( response.code() == 200) {
-                response.body() ?: emptyList()
-            }else {
-
-            }
+            //if( response.code() == 200) {
+            response.body() ?: emptyList()
         }
     }
-
 }
