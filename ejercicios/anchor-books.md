@@ -71,7 +71,9 @@ que los tamaños y distancias pueden no ser exactos en esta primera versión. Pa
 confusiones, el jefe de proyecto ha decidido enumerar las especificaciones que no pueden faltar:
 
 - Use la siguiente paleta para los colores de la aplicación:
-
+	- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
+	- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
+	- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `#1589F0`
 - Aunque los tamaños pueden variar, la diagramación de los layouts se debe mantener, esto
 incluye las filas de la lista y la segunda pantalla (Utilizar recomendaciones de ​Material
 Design​).
