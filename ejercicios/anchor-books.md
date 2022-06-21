@@ -71,7 +71,9 @@ que los tamaños y distancias pueden no ser exactos en esta primera versión. Pa
 confusiones, el jefe de proyecto ha decidido enumerar las especificaciones que no pueden faltar:
 
 - Use la siguiente paleta para los colores de la aplicación:
-	- ![ki](data:image/svg+xml;<svg width="15" height="15"><rect x="0" y="0" width="300" height="100" fill="yellow"/></svg>)
+
+![ki](data:image/svg+xml;<svg width="15" height="15"><rect x="0" y="0" width="300" height="100" fill="yellow"/></svg>)
+
 - Aunque los tamaños pueden variar, la diagramación de los layouts se debe mantener, esto
 incluye las filas de la lista y la segunda pantalla (Utilizar recomendaciones de ​Material
 Design​).
