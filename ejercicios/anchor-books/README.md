@@ -72,11 +72,7 @@ confusiones, el jefe de proyecto ha decidido enumerar las especificaciones que n
 
 - Use la siguiente paleta para los colores de la aplicación:
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://via.placeholder.com/15/388e3c/000000?text=%20">
-  <source media="(prefers-color-scheme: light)" srcset="https://via.placeholder.com/15/388e3c/000000?text=%20">
-  <img alt="#388e3c" src="https://via.placeholder.com/15/388e3c/000000?text=%20">
-</picture>
+![paleta colores](colores.png)
 
 - Aunque los tamaños pueden variar, la diagramación de los layouts se debe mantener, esto
 incluye las filas de la lista y la segunda pantalla (Utilizar recomendaciones de ​Material
@@ -94,6 +90,8 @@ tiene que utilizar vector graphics.
 - Se adjuntan algunos ejemplos de pantallas tipo, pero basándonos en el tiempo, debe
 tomar decisiones que permitan realizar el proyecto.
 
+
+![paleta colores](pantallas.png)
 
 ## End Points y Modelos de Datos
 
