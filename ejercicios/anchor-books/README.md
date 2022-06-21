@@ -108,9 +108,7 @@ la data reducida:
 	"id": 1,
 	"author": "Chinua Achebe",
 	"country": "Nigeria",
-	"imageLink":
-	"https://user-images.githubusercontent.com/22780253/103938792-90279200-5109-11
-	eb-906a-50ac3b73e40d.jpg",
+	"imageLink": "https://user-images.githubusercontent.com/22780253/103938792-90279200-5109-11eb-906a-50ac3b73e40d.jpg",
 	"language": "English",
 	"title": "Things Fall Apart"
 }
@@ -124,9 +122,7 @@ A continuación, puede ver un ejemplo con 3 objetos:
 		"id": 1,
 		"author": "Chinua Achebe",
 		"country": "Nigeria",
-		"imageLink":
-		"https://user-images.githubusercontent.com/22780253/103938792-90279200-5109-11
-		eb-906a-50ac3b73e40d.jpg",
+		"imageLink": "https://user-images.githubusercontent.com/22780253/103938792-90279200-5109-11eb-906a-50ac3b73e40d.jpg",
 		"language": "English",
 		"title": "Things Fall Apart"
 	},
@@ -134,9 +130,7 @@ A continuación, puede ver un ejemplo con 3 objetos:
 		"id": 2,
 		"author": "Hans Christian Andersen",
 		"country": "Denmark",
-		"imageLink":
-		"https://user-images.githubusercontent.com/22780253/103938837-a1709e80-5109-11
-		eb-9660-96b17ed8105d.jpg",
+		"imageLink": "https://user-images.githubusercontent.com/22780253/103938837-a1709e80-5109-11eb-9660-96b17ed8105d.jpg",
 		"language": "Danish",
 		"title": "Fairy tales"
 	},
@@ -144,9 +138,7 @@ A continuación, puede ver un ejemplo con 3 objetos:
 		"id": 3,
 		"author": "Dante Alighieri",
 		"country": "Italy",
-		"imageLink":
-		"https://user-images.githubusercontent.com/22780253/103938865-a9c8d980-5109-11
-		eb-9e4b-e90166846222.jpg",
+		"imageLink": "https://user-images.githubusercontent.com/22780253/103938865-a9c8d980-5109-11eb-9e4b-e90166846222.jpg",
 		"language": "Italian",
 		"title": "The Divine Comedy"
 	}
@@ -165,9 +157,7 @@ que tiene todos los datos.
 	"id": 1,
 	"author": "Chinua Achebe",
 	"country": "Nigeria",
-	"imageLink":
-	"https://user-images.githubusercontent.com/22780253/103938792-90279200-5109-11
-	eb-906a-50ac3b73e40d.jpg",
+	"imageLink": "https://user-images.githubusercontent.com/22780253/103938792-90279200-5109-11eb-906a-50ac3b73e40d.jpg",
 	"language": "English",
 	"link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
 	"pages": 209,
@@ -190,13 +180,15 @@ Como habrá notado hay 1 atributo (delivery) que es booleano, pero en el diseño
 Cuando el usuario está viendo el detalle de un equipo al hacer click en un botón del detalle, tiene
 que enviarse un correo con la siguiente información pre llenada:
 
-**Destinario**: ​ventas@anchorBooks.cl
-**Asunto**: Consulta por libro {TITLE} id {ID}
-**Mensaje**:
-"Hola
-Vi el libro {TITLE} de código ​{ID}​ y me gustaría que me contactaran a este correo o al
-siguiente número _________
-Quedo atento."
+**Destinario**: ​ventas@anchorBooks.cl  
+**Asunto**: Consulta por libro {TITLE} id {ID}  
+**Mensaje**:  
+"Hola  
+Vi el libro {TITLE} de código ​{ID}​ y me gustaría que me contactaran a este correo o al  
+siguiente número _________  
+
+Quedo atento."  
+
 
 Recuerde reemplazar lo indicado entre paréntesis cursivos por la data correspondiente al libro
 seleccionado. No incluya los paréntesis cursivos en correo.
