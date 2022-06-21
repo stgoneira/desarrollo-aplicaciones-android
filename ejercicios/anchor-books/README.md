@@ -31,8 +31,7 @@ En esta primera versión, la app realizará lo siguiente:
 - El servicio REST contará con ​2 end points​, uno que entregará una colección ​de libros y el
 segundo que entregará los detalles de estos libros dado un identificador.
 - Considerando que para esta primera versión se busca tener una gran cobertura de
-dispositivos manteniendo los costos de mantención bajos, la API mínima es 23 y el target
-30.
+dispositivos manteniendo los costos de mantención bajos, la API mínima es 23 y el target 30.
 
 Lo que se espera que haga la aplicación es que cualquier usuario que la instale sin necesidad de
 autenticarse, pueda ver una lista de los Libros, ver los detalles del que seleccione y enviar un
@@ -205,9 +204,9 @@ llevar a cabo.
 - Al menos un test de instrumental.
 
 Sugerencias:
--Test unitario que verifique la respuesta de los endpoints usando un servidor de pruebas
+- Test unitario que verifique la respuesta de los endpoints usando un servidor de pruebas
 como mockwebserver.
--Test instrumental que compruebe la persistencia de datos con ROOM.
--Test unitarios sobre cualquier función.
+- Test instrumental que compruebe la persistencia de datos con ROOM.
+- Test unitarios sobre cualquier función.
 
 
