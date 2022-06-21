@@ -72,7 +72,11 @@ confusiones, el jefe de proyecto ha decidido enumerar las especificaciones que n
 
 - Use la siguiente paleta para los colores de la aplicación:
 
-![ki](data:image/svg+xml;<svg width="15" height="15"><rect x="0" y="0" width="300" height="100" fill="yellow"/></svg>)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
 
 - Aunque los tamaños pueden variar, la diagramación de los layouts se debe mantener, esto
 incluye las filas de la lista y la segunda pantalla (Utilizar recomendaciones de ​Material
