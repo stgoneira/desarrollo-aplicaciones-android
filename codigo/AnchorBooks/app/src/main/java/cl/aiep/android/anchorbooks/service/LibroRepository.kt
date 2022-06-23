@@ -1,13 +1,14 @@
 package cl.aiep.android.anchorbooks.service
 
 import cl.aiep.android.anchorbooks.db.LibroDao
-import cl.aiep.android.anchorbooks.db.LibroHelper
+import cl.aiep.android.anchorbooks.helper.LibroHelper
+import cl.aiep.android.anchorbooks.mapper.LibroMapper
 import cl.aiep.android.anchorbooks.modelo.Libro
-import cl.aiep.android.anchorbooks.modelo.LibroMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class LibroRepository (
+class LibroRepository @Inject constructor(
     val libroAPI:LibroAPI,
     val libroDao:LibroDao
 ) {
@@ -16,8 +17,11 @@ class LibroRepository (
         return withContext(Dispatchers.IO) {
             val response = libroAPI.detailLibro(id)
             if( response.isSuccessful ) {
-                val libro = response.body() ?: LibroHelper.emptyLibroEntity()
+                val libro = response.body() ?: LibroHelper.emptyLibroModel()
+
+                // cachear en BD
                 libroDao.insertAll(LibroMapper.toEntity(libro))
+
                 libro
             } else {
                 libroDao.findById(id)
@@ -30,14 +34,19 @@ class LibroRepository (
             val response = libroAPI.listLibros()
             if( response.isSuccessful ) {
                 val libros = response.body() ?: emptyList()
+
+                // borra cache antigua
                 libroDao.deleteAll()
-                for(libro in libros) {
-                    libroDao.insertAll( LibroMapper.toEntity(libro) )
+                // cachear datos en BD
+                libros.forEach { libroModel ->
+                    libroDao.insertAll( LibroMapper.toEntity(libroModel) )
                 }
+
                 libros
-            } else {
+            }else {
                 libroDao.getAll()
             }
         }
     }
+
 }

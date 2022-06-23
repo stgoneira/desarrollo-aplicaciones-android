@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cl.aiep.android.anchorbooks.adapter.LibroAdapter
 import cl.aiep.android.anchorbooks.databinding.ActivityMainBinding
 import cl.aiep.android.anchorbooks.view.LibroViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         // RECYCLERVIEW
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = LibroAdapter(emptyList())
 
         libroViewModel.cargarLibros()
 

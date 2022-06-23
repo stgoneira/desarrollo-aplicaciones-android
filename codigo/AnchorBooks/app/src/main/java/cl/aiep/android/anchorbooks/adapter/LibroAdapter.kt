@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.aiep.android.anchorbooks.DetalleActivity
 import cl.aiep.android.anchorbooks.databinding.LibroItemBinding
 import cl.aiep.android.anchorbooks.modelo.Libro
+import cl.aiep.android.anchorbooks.modelo.LibroModel
 import com.squareup.picasso.Picasso
 
 const val LIBROID_MESSAGE = "cl.aiep.android.anchorbooks.LIBROID"
